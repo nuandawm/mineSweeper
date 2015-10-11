@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<script type="text/javascript" src="js/controllers/MainController.js"></script>
+	<script type="text/javascript" src="js/views/BoardView.js"></script>
+	<script type="text/javascript" src="js/views/MineCellView.js"></script>
+
+	<script type="text/javascript" src="js/models/BoardModel.js"></script>
+	<script type="text/javascript" src="js/models/MineCellModel.js"></script>
+	
+	<script type="text/javascript">
+	$(function(){
+		MainController.init(14,10);
+		MainController.initEvents();
+	});
+	</script>
+</head>
+<body>
+<div id="board"></div>
+</body>
+</html>
