@@ -33,17 +33,15 @@ var MainController = (function(){
 		for (var i=0; i<cells.length; i++) {
 			for (var j=0; j<cells[i].length; j++) {
 				if (cells[i][j].getHasMine()) {
-					for (var k in Constants.NEIGHBOUR_COORDS) {
-						if ( (j+Constants.NEIGHBOUR_COORDS[k].x)>=0 && (j+Constants.NEIGHBOUR_COORDS[k].x)<width
-							&& (i+Constants.NEIGHBOUR_COORDS[k].y)>=0 && (i+Constants.NEIGHBOUR_COORDS[k].y)<height) {
-							cells[i+Constants.NEIGHBOUR_COORDS[k].y][j+Constants.NEIGHBOUR_COORDS[k].x].incrSurrMines();
-						}
+					var adjacentCells = cells[i][j].getAdjacentCells(cells);
+					for (var k in adjacentCells) {
+						adjacentCells[k].incrSurrMines();
 					}
 				}
 			}
 		}
 
-		/*for (var i in cells) {
+		for (var i in cells) {
 			var str = '';
 			for (var j in cells[i]) {
 				if (cells[i][j].getHasMine())
@@ -53,7 +51,7 @@ var MainController = (function(){
 				str+=', ';
 			}
 			console.log(str);
-		}*/
+		}
 	};
 
 	// Public methods

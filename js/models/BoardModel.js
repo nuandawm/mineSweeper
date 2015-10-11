@@ -4,7 +4,7 @@ var BoardModel = function(width,height){
 	for (var i=0; i<height; i++) {
 		cells.push([]);
 		for (var j=0; j<width; j++) {
-			cells[i].push(new MineCellModel());
+			cells[i].push(new MineCellModel(j,i));
 		}
 	}
 	view.addCells(cells);
