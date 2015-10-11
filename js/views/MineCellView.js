@@ -16,15 +16,10 @@ var MineCellView = function(msModel){
 MineCellView.prototype.dig = function() {
 	if (!this.getElem().hasClass('active'))
 		this.getElem().addClass('active');
-	if (this.getModel().getHasMine()) {
-		alert('BOOM!'); // TODO Put a message somewhere
-		location.reload();
-	}
-	else {
-		if (this.getModel().getSurrMines()!=0)
-			this.getElem().html(this.getModel().getSurrMines());
-		else {
-			// TODO Recursive method to cicle on neighbour cell with surrMines==0 and .dig them
-		}
-	}
+	if (this.getModel().getSurrMines()!=0)
+		this.getElem().html(this.getModel().getSurrMines());
 };
+MineCellView.prototype.boom = function() {
+	alert('BOOM!'); // TODO Put a message somewhere
+	location.reload();
+}

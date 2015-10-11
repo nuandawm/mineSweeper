@@ -24,9 +24,13 @@ var MineCellModel = function(){
 	};
 };
 MineCellModel.prototype.dig = function() {
-		this.setUncovered(true);
-		this.getView().dig();
+	this.setUncovered(true);
+	this.getView().dig();
 };
 MineCellModel.prototype.incrSurrMines = function() {
 	this.setSurrMines(this.getSurrMines()+1);
+};
+MineCellModel.prototype.boom = function() {
+	if (this.getHasMine())
+		this.getView().boom();
 };
